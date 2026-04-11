@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#4CAF6A',
   },
-n  
+
   background: {
     position: 'absolute',
     width: '100%',
