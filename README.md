@@ -1,4 +1,7 @@
 Nguyễn Quang Huy - 23810310172
+
+https://drive.google.com/file/d/1YGltO3Nso_n7CEprhYDGJx8nNykOgu-m/view?usp=drive_link
+
 Đầu tiên khi ta vào app sẽ hiện ảnh chào mừng splash screen, sau 3 giây nó sẽ tự chuyển sang screen 2
 
 ![23810310172_01_SplashScreen](https://github.com/user-attachments/assets/cc02ea53-4bbb-4c53-97b7-51b6ebd26378)
