@@ -29,6 +29,7 @@ Nếu chưa có tài khoản thì bấm vào chữ signup để đăng kí tài 
 ![23810310172_08_SignUp](https://github.com/user-attachments/assets/24f9fdb2-08ec-4214-92c0-6dafd0f10feb)
 
 <img width="1080" height="2400" alt="Home" src="https://github.com/user-attachments/assets/b819cb3b-04aa-4253-ba44-beecf3e2ca60" />
+<img width="1080" height="2400" alt="Home2" src="https://github.com/user-attachments/assets/e309dce3-4e43-4f62-b379-19cc05a61558" />
 <img width="1080" height="2400" alt="ProductDetail" src="https://github.com/user-attachments/assets/14963571-4f99-4da3-8116-6d85837bd29b" />
 <img width="1080" height="2400" alt="Explore" src="https://github.com/user-attachments/assets/5c3fb050-e58f-4810-a86d-2f862d81a41a" />
 <img width="1080" height="2400" alt="Beverage" src="https://github.com/user-attachments/assets/279506b9-c94b-4e1f-ab06-56fc26d0ea19" />
