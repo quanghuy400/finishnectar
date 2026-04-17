@@ -42,7 +42,7 @@ export default function Beverage({ navigation }) {
 const Card = ({ item }) => (
   <View style={styles.card}>
 
-    {/* 👇 CHỖ ẢNH (bạn thay require vào đây) */}
+    
     <Image source={item.image} style={styles.img} />
 
     <Text style={styles.name}>{item.name}</Text>
@@ -59,7 +59,7 @@ const Card = ({ item }) => (
   </View>
 );
 
-/* DATA (bạn sửa ảnh ở đây) */
+/* DATA */
 const data = [
   {
     name: 'Diet Coke',
