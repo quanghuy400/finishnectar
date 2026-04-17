@@ -78,8 +78,11 @@ export default function Login({ navigation }) {
         </View>
 
         {/* Button */}
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Log In</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.replace('Home')} 
+        >
+        <Text style={styles.buttonText}>Log In</Text>
         </TouchableOpacity>
 
         {/* Signup */}
