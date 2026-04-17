@@ -20,10 +20,7 @@ export default function Home({ navigation }) {
 
         {/* HEADER */}
         <View style={styles.header}>
-          <Image
-            source={require('../assets/Group.png')}
-            style={styles.logo}
-          />
+          <Image source={require('../assets/Group.png')} style={styles.logo} />
           <View style={styles.locationRow}>
             <Ionicons name="location" size={16} color="#4CAF6A" />
             <Text style={styles.locationText}>Your Location</Text>
@@ -74,6 +71,32 @@ export default function Home({ navigation }) {
           </ScrollView>
         </View>
 
+        {/* GROCERIES */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Groceries</Text>
+            <Text style={styles.seeAll}>See all</Text>
+          </View>
+
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {groceries.map((item, index) => (
+              <TouchableOpacity key={index} style={styles.groceryCard}>
+                <Image source={item.image} style={styles.groceryImg} />
+                <Text style={styles.groceryName}>{item.name}</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
+
+        {/* MEAT (Beef + Chicken) */}
+        <View style={styles.section}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {meatData.map((item, index) => (
+              <Card key={index} item={item} navigation={navigation} />
+            ))}
+          </ScrollView>
+        </View>
+
       </ScrollView>
 
       {/* TAB */}
@@ -101,7 +124,6 @@ const Card = ({ item, navigation }) => (
 
     <View style={styles.row}>
       <Text style={styles.price}>$4.99</Text>
-
       <TouchableOpacity style={styles.add}>
         <Ionicons name="add" size={18} color="#fff" />
       </TouchableOpacity>
@@ -118,16 +140,13 @@ const tab = (icon, label, navigation, active = false) => (
       if (label === 'Shop') navigation.navigate('Home');
     }}
   >
-    <Ionicons
-      name={icon}
-      size={22}
-      color={active ? '#4CAF6A' : '#888'}
-    />
+    <Ionicons name={icon} size={22} color={active ? '#4CAF6A' : '#888'} />
     <Text style={{ fontSize: 12, color: active ? '#4CAF6A' : '#888' }}>
       {label}
     </Text>
   </TouchableOpacity>
 );
+
 /* DATA */
 const data1 = [
   { name: 'Banana', image: require('../assets/banana.png') },
@@ -137,6 +156,16 @@ const data1 = [
 const data2 = [
   { name: 'Pepper', image: require('../assets/pepper.png') },
   { name: 'Ginger', image: require('../assets/ginger.png') },
+];
+
+const groceries = [
+  { name: 'Pulses', image: require('../assets/pulse.png') },
+  { name: 'Rice', image: require('../assets/rice.png') },
+];
+
+const meatData = [
+  { name: 'Beef Bone', image: require('../assets/beef.png') },
+  { name: 'Broiler Chicken', image: require('../assets/chicken.png') },
 ];
 
 /* STYLE */
@@ -259,6 +288,29 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  groceryCard: {
+    width: width * 0.6,
+    height: 100,
+    backgroundColor: '#F5F5F5',
+    borderRadius: 15,
+    marginLeft: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 15,
+  },
+
+  groceryImg: {
+    width: 60,
+    height: 60,
+    resizeMode: 'contain',
+    marginRight: 15,
+  },
+
+  groceryName: {
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 
   tabBar: {
