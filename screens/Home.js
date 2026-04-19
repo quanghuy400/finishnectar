@@ -99,14 +99,7 @@ export default function Home({ navigation }) {
 
       </ScrollView>
 
-      {/* TAB */}
-      <View style={styles.tabBar}>
-        {tab('home', 'Shop', navigation, true)}
-        {tab('search', 'Explore', navigation)}
-        {tab('cart', 'Cart', navigation)}
-        {tab('heart', 'Favourite', navigation)}
-        {tab('person', 'Account', navigation)}
-      </View>
+     
     </View>
   );
 }
@@ -128,22 +121,6 @@ const Card = ({ item, navigation }) => (
         <Ionicons name="add" size={18} color="#fff" />
       </TouchableOpacity>
     </View>
-  </TouchableOpacity>
-);
-
-/* TAB */
-const tab = (icon, label, navigation, active = false) => (
-  <TouchableOpacity
-    style={styles.tabItem}
-    onPress={() => {
-      if (label === 'Explore') navigation.navigate('Explore');
-      if (label === 'Shop') navigation.navigate('Home');
-    }}
-  >
-    <Ionicons name={icon} size={22} color={active ? '#4CAF6A' : '#888'} />
-    <Text style={{ fontSize: 12, color: active ? '#4CAF6A' : '#888' }}>
-      {label}
-    </Text>
   </TouchableOpacity>
 );
 
@@ -308,21 +285,10 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
 
-  groceryName: {
+  groceryName: {  
     fontWeight: 'bold',
     fontSize: 16,
   },
 
-  tabBar: {
-    height: 70,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    borderTopWidth: 1,
-    borderColor: '#eee',
-  },
-
-  tabItem: {
-    alignItems: 'center',
-  },
+  
 });

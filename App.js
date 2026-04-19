@@ -16,35 +16,58 @@ import Home from './screens/Home';
 import ProductDetail from './screens/ProductDetail';
 import Explore from './screens/Explore';
 import Beverage from './screens/Beverage';
+import Search from './screens/Search';
+import Cart from './screens/Cart';
+import Favourite from './screens/Favourite';
+import Filter from './screens/Filter';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-/* TAB */
 function MainTab() {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
-
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: '#4CAF6A',
+        tabBarInactiveTintColor: '#888',
+      }}
+    >
       <Tab.Screen
-        name="Home"
+        name="Shop"
         component={Home}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="home" size={22} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <Ionicons name="home" size={22} color={color} />,
         }}
       />
-
       <Tab.Screen
         name="Explore"
-        component={Explore}
+        component={Explore} 
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="search" size={22} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <Ionicons name="search" size={22} color={color} />,
         }}
       />
-
+      <Tab.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          tabBarIcon: ({ color }) => <Ionicons name="cart" size={22} color={color} />,
+        }}
+      />
+      <Tab.Screen
+        name="Favourite"
+        component={Favourite}
+        options={{
+          tabBarIcon: ({ color }) => <Ionicons name="heart" size={22} color={color} />,
+        }}
+      />
+      <Tab.Screen
+        name="Account"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color }) => <Ionicons name="person" size={22} color={color} />,
+        }}
+      />
     </Tab.Navigator>
   );
 }
@@ -61,11 +84,11 @@ export default function App() {
         <Stack.Screen name="Location" component={Location} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="MainTab" component={MainTab} />
         <Stack.Screen name="ProductDetail" component={ProductDetail} />
-        <Stack.Screen name="Explore" component={Explore} />
         <Stack.Screen name="Beverage" component={Beverage} />
-
+        <Stack.Screen name="Search" component={Search} />
+        <Stack.Screen name="Filter" component={Filter} />
       </Stack.Navigator>
     </NavigationContainer>
   );

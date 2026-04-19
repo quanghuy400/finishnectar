@@ -80,7 +80,7 @@ export default function Login({ navigation }) {
         {/* Button */}
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.replace('Home')} 
+          onPress={() => navigation.replace('MainTab')}
         >
         <Text style={styles.buttonText}>Log In</Text>
         </TouchableOpacity>

@@ -1,0 +1,25 @@
+const products = [
+  { id: '1', name: 'Bell Pepper Red', sub: '1kg, Price', price: 4.99, category: 'Vegetables', brand: 'Ifad', image: require('./assets/pepper.png') },
+  { id: '2', name: 'Organic Bananas', sub: '12kg, Price', price: 3.00, category: 'Fruits', brand: 'Ifad', image: require('./assets/banana.png') },
+  { id: '3', name: 'Ginger', sub: '250gm, Price', price: 2.99, category: 'Vegetables', brand: 'Kazi Farmas', image: require('./assets/ginger.png') },
+  { id: '4', name: 'Apple', sub: '1kg, Price', price: 4.99, category: 'Fruits', brand: 'Individual Collection', image: require('./assets/apple.png') },
+  { id: '5', name: 'Diet Coke', sub: '355ml, Price', price: 1.99, category: 'Beverages', brand: 'Cocola', image: require('./assets/dietcoke.png') },
+  { id: '6', name: 'Sprite Can', sub: '325ml, Price', price: 1.50, category: 'Beverages', brand: 'Cocola', image: require('./assets/sprite.png') },
+  { id: '7', name: 'Apple & Grape Juice', sub: '2L, Price', price: 15.99, category: 'Beverages', brand: 'Ifad', image: require('./assets/applejuice.png') },
+  { id: '8', name: 'Orange Juice', sub: '2L, Price', price: 15.99, category: 'Beverages', brand: 'Kazi Farmas', image: require('./assets/orangejuice.png') },
+  { id: '9', name: 'Coca Cola Can', sub: '325ml, Price', price: 4.99, category: 'Beverages', brand: 'Cocola', image: require('./assets/cocacola.png') },
+  { id: '10', name: 'Pepsi Can', sub: '330ml, Price', price: 4.99, category: 'Beverages', brand: 'Cocola', image: require('./assets/pepsi.png') },
+  { id: '11', name: 'Beef Bone', sub: '1kg, Price', price: 8.99, category: 'Meat & Fish', brand: 'Kazi Farmas', image: require('./assets/beef.png') },
+  { id: '12', name: 'Chicken', sub: '1kg, Price', price: 6.99, category: 'Meat & Fish', brand: 'Kazi Farmas', image: require('./assets/chicken.png') },
+  { id: '13', name: 'Cooking Oil', sub: '1L, Price', price: 5.99, category: 'Cooking Oil & Ghee', brand: 'Ifad', image: require('./assets/oil.png') },
+  { id: '14', name: 'Rice', sub: '5kg, Price', price: 12.99, category: 'Bakery & Snacks', brand: 'Kazi Farmas', image: require('./assets/rice.png') },
+  { id: '15', name: 'Pulse', sub: '1kg, Price', price: 3.99, category: 'Bakery & Snacks', brand: 'Individual Collection', image: require('./assets/pulse.png') },
+  { id: '16', name: 'Egg Chicken Red', sub: '4pcs, Price', price: 1.99, category: 'Dairy & Eggs', brand: 'Kazi Farmas', image: require('./assets/eckr.png') },
+  { id: '17', name: 'Egg Chicken White', sub: '180g, Price', price: 1.50, category: 'Dairy & Eggs', brand: 'Individual Collection', image: require('./assets/eckw.png') },
+  { id: '18', name: 'Egg Pasta', sub: '30gm, Price', price: 15.99, category: 'Bakery & Snacks', brand: 'Ifad', image: require('./assets/ep.png') },
+  { id: '19', name: 'Egg Noodles', sub: '2L, Price', price: 15.99, category: 'Bakery & Snacks', brand: 'Cocola', image: require('./assets/en.png') },
+  { id: '20', name: 'Mayonnais Eggless', sub: '1kg, Price', price: 5.99, category: 'Bakery & Snacks', brand: 'Ifad', image: require('./assets/me.png') },
+  { id: '21', name: 'Egg Noodles', sub: '1kg, Price', price: 5.99, category: 'Bakery & Snacks', brand: 'Ifad', image: require('./assets/enoodle.png') },
+];
+
+export default products;

@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  TextInput,
   TouchableOpacity,
   Image,
 } from 'react-native';
@@ -17,14 +16,16 @@ export default function Explore({ navigation }) {
       <Text style={styles.title}>Find Products</Text>
 
       {/* SEARCH */}
-      <View style={styles.searchBox}>
+      <TouchableOpacity
+        style={styles.searchBox}
+        onPress={() => navigation.navigate('Search')}
+        activeOpacity={0.8}
+      >
         <Ionicons name="search" size={18} color="#888" />
-        <TextInput
-          placeholder="Search Store"
-          placeholderTextColor="#999"
-          style={styles.searchInput}
-        />
-      </View>
+        <Text style={{ marginLeft: 10, color: '#999', fontSize: 15 }}>
+          Search Store
+        </Text>
+      </TouchableOpacity>
 
       {/* GRID */}
       <View style={styles.grid}>
@@ -100,14 +101,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingTop: 60,
   },
-
   title: {
     textAlign: 'center',
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
   },
-
   searchBox: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -118,19 +117,12 @@ const styles = StyleSheet.create({
     height: 45,
     marginBottom: 20,
   },
-
-  searchInput: {
-    marginLeft: 10,
-    flex: 1,
-  },
-
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
   },
-
   card: {
     width: '48%',
     height: 150,
@@ -140,14 +132,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1.5,
   },
-
   img: {
     width: 80,
     height: 80,
     resizeMode: 'contain',
     marginBottom: 8,
   },
-
   text: {
     textAlign: 'center',
     fontWeight: '600',
