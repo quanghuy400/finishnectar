@@ -28,11 +28,22 @@ Rồi tiến hành đăng nhập bằng cách nhập tài khoản mật khẩu
 Nếu chưa có tài khoản thì bấm vào chữ signup để đăng kí tài khoản
 ![23810310172_08_SignUp](https://github.com/user-attachments/assets/24f9fdb2-08ec-4214-92c0-6dafd0f10feb)
 
-<img width="1080" height="2400" alt="Home" src="https://github.com/user-attachments/assets/b819cb3b-04aa-4253-ba44-beecf3e2ca60" />
-<img width="1080" height="2400" alt="Home2" src="https://github.com/user-attachments/assets/e309dce3-4e43-4f62-b379-19cc05a61558" />
-<img width="1080" height="2400" alt="ProductDetail" src="https://github.com/user-attachments/assets/14963571-4f99-4da3-8116-6d85837bd29b" />
-<img width="1080" height="2400" alt="Explore" src="https://github.com/user-attachments/assets/5c3fb050-e58f-4810-a86d-2f862d81a41a" />
-<img width="1080" height="2400" alt="Beverage" src="https://github.com/user-attachments/assets/279506b9-c94b-4e1f-ab06-56fc26d0ea19" />
+<img width="1080" height="2400" alt="Home1" src="https://github.com/user-attachments/assets/b004c4d2-58c2-4f79-b809-9a04fdb73d3e" />
+<img width="1080" height="2400" alt="Home2" src="https://github.com/user-attachments/assets/ba29cb1c-79b2-4381-a5ae-e92d05d5ba34" />
+<img width="1080" height="2400" alt="ProductDetail" src="https://github.com/user-attachments/assets/71437d8f-fe41-4cd2-beaf-05d0ef215147" />
+<img width="1080" height="2400" alt="Explore" src="https://github.com/user-attachments/assets/1969ad88-f54f-4274-a3e3-88cda8a410a5" />
+<img width="1080" height="2400" alt="Beverage" src="https://github.com/user-attachments/assets/bd74400f-c7b3-4f1c-80fe-2d2e887dcea6" />
+<img width="1080" height="2400" alt="Search" src="https://github.com/user-attachments/assets/fccc2008-dc29-4dbb-9ff6-cad6ee3f9656" />
+<img width="1080" height="2400" alt="Filter" src="https://github.com/user-attachments/assets/f1c4d164-a05c-440d-b5a0-13a41b708932" />
+<img width="1080" height="2400" alt="Favourite" src="https://github.com/user-attachments/assets/f748c393-59a0-45ce-b035-3e67c718ae29" />
+
+
+
+
+
+
+
+
 
 
 
