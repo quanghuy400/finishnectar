@@ -1,17 +1,18 @@
 import React from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
+  View, Text, StyleSheet, TextInput, Image,
+  ScrollView, TouchableOpacity, Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import products from '../data';
 
 const { width } = Dimensions.get('window');
+
+// ✅ Lấy từ products có đủ id, price, imageKey
+const data1 = products.filter(p => ['2', '4'].includes(p.id)); // Banana, Apple
+const data2 = products.filter(p => ['1', '3'].includes(p.id)); // Pepper, Ginger
+const groceries = products.filter(p => ['15', '14'].includes(p.id)); // Pulse, Rice
+const meatData = products.filter(p => ['11', '12'].includes(p.id)); // Beef, Chicken
 
 export default function Home({ navigation }) {
   return (
@@ -49,10 +50,9 @@ export default function Home({ navigation }) {
             <Text style={styles.sectionTitle}>Exclusive Offer</Text>
             <Text style={styles.seeAll}>See all</Text>
           </View>
-
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {data1.map((item, index) => (
-              <Card key={index} item={item} navigation={navigation} />
+            {data1.map((item) => (
+              <Card key={item.id} item={item} navigation={navigation} />
             ))}
           </ScrollView>
         </View>
@@ -63,10 +63,9 @@ export default function Home({ navigation }) {
             <Text style={styles.sectionTitle}>Best Selling</Text>
             <Text style={styles.seeAll}>See all</Text>
           </View>
-
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {data2.map((item, index) => (
-              <Card key={index} item={item} navigation={navigation} />
+            {data2.map((item) => (
+              <Card key={item.id} item={item} navigation={navigation} />
             ))}
           </ScrollView>
         </View>
@@ -77,10 +76,13 @@ export default function Home({ navigation }) {
             <Text style={styles.sectionTitle}>Groceries</Text>
             <Text style={styles.seeAll}>See all</Text>
           </View>
-
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {groceries.map((item, index) => (
-              <TouchableOpacity key={index} style={styles.groceryCard}>
+            {groceries.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                style={styles.groceryCard}
+                onPress={() => navigation.navigate('ProductDetail', { item })}
+              >
                 <Image source={item.image} style={styles.groceryImg} />
                 <Text style={styles.groceryName}>{item.name}</Text>
               </TouchableOpacity>
@@ -88,18 +90,16 @@ export default function Home({ navigation }) {
           </ScrollView>
         </View>
 
-        {/* MEAT (Beef + Chicken) */}
+        {/* MEAT */}
         <View style={styles.section}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {meatData.map((item, index) => (
-              <Card key={index} item={item} navigation={navigation} />
+            {meatData.map((item) => (
+              <Card key={item.id} item={item} navigation={navigation} />
             ))}
           </ScrollView>
         </View>
 
       </ScrollView>
-
-     
     </View>
   );
 }
@@ -113,182 +113,61 @@ const Card = ({ item, navigation }) => (
   >
     <Image source={item.image} style={styles.img} />
     <Text style={styles.name}>{item.name}</Text>
-    <Text style={styles.sub}>1kg, Price</Text>
-
+    <Text style={styles.sub}>{item.sub}</Text>
     <View style={styles.row}>
-      <Text style={styles.price}>$4.99</Text>
-      <TouchableOpacity style={styles.add}>
+      <Text style={styles.price}>${item.price.toFixed(2)}</Text>
+      <TouchableOpacity
+        style={styles.add}
+        onPress={() => navigation.navigate('ProductDetail', { item })}
+      >
         <Ionicons name="add" size={18} color="#fff" />
       </TouchableOpacity>
     </View>
   </TouchableOpacity>
 );
 
-/* DATA */
-const data1 = [
-  { name: 'Banana', image: require('../assets/banana.png') },
-  { name: 'Apple', image: require('../assets/apple.png') },
-];
-
-const data2 = [
-  { name: 'Pepper', image: require('../assets/pepper.png') },
-  { name: 'Ginger', image: require('../assets/ginger.png') },
-];
-
-const groceries = [
-  { name: 'Pulses', image: require('../assets/pulse.png') },
-  { name: 'Rice', image: require('../assets/rice.png') },
-];
-
-const meatData = [
-  { name: 'Beef Bone', image: require('../assets/beef.png') },
-  { name: 'Broiler Chicken', image: require('../assets/chicken.png') },
-];
-
-/* STYLE */
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-
-  header: {
-    alignItems: 'center',
-    marginTop: 50,
-  },
-
-  logo: {
-    width: 40,
-    height: 40,
-  },
-
-  locationRow: {
-    flexDirection: 'row',
-    marginTop: 5,
-  },
-
-  locationText: {
-    marginLeft: 5,
-  },
-
+  container: { flex: 1, backgroundColor: '#fff' },
+  header: { alignItems: 'center', marginTop: 50 },
+  logo: { width: 40, height: 40 },
+  locationRow: { flexDirection: 'row', marginTop: 5 },
+  locationText: { marginLeft: 5 },
   searchBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#f1f1f1',
-    margin: 20,
-    paddingHorizontal: 10,
-    borderRadius: 10,
-    height: 45,
+    flexDirection: 'row', alignItems: 'center',
+    backgroundColor: '#f1f1f1', margin: 20,
+    paddingHorizontal: 10, borderRadius: 10, height: 45,
   },
-
-  searchInput: {
-    marginLeft: 10,
-    flex: 1,
-  },
-
+  searchInput: { marginLeft: 10, flex: 1 },
   banner: {
-    marginHorizontal: 20,
-    padding: 20,
-    borderRadius: 15,
-    backgroundColor: '#E8F5E9',
+    marginHorizontal: 20, padding: 20,
+    borderRadius: 15, backgroundColor: '#E8F5E9',
   },
-
-  bannerTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-
-  bannerSub: {
-    color: '#4CAF6A',
-  },
-
-  section: {
-    marginTop: 20,
-  },
-
+  bannerTitle: { fontSize: 18, fontWeight: 'bold' },
+  bannerSub: { color: '#4CAF6A' },
+  section: { marginTop: 20 },
   sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    marginBottom: 10,
+    flexDirection: 'row', justifyContent: 'space-between',
+    paddingHorizontal: 20, marginBottom: 10,
   },
-
-  sectionTitle: {
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-
-  seeAll: {
-    color: '#4CAF6A',
-  },
-
+  sectionTitle: { fontWeight: 'bold', fontSize: 16 },
+  seeAll: { color: '#4CAF6A' },
   card: {
-    width: width * 0.42,
-    backgroundColor: '#fff',
-    padding: 15,
-    borderRadius: 15,
-    marginLeft: 20,
-    elevation: 3,
+    width: width * 0.42, backgroundColor: '#fff',
+    padding: 15, borderRadius: 15,
+    marginLeft: 20, elevation: 3,
   },
-
-  img: {
-    width: '100%',
-    height: 80,
-    resizeMode: 'contain',
-    marginBottom: 10,
-  },
-
-  name: {
-    fontWeight: 'bold',
-  },
-
-  sub: {
-    color: '#888',
-    fontSize: 12,
-  },
-
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 10,
-    alignItems: 'center',
-  },
-
-  price: {
-    fontWeight: 'bold',
-  },
-
-  add: {
-    width: 30,
-    height: 30,
-    backgroundColor: '#4CAF6A',
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
+  img: { width: '100%', height: 80, resizeMode: 'contain', marginBottom: 10 },
+  name: { fontWeight: 'bold' },
+  sub: { color: '#888', fontSize: 12 },
+  row: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, alignItems: 'center' },
+  price: { fontWeight: 'bold' },
+  add: { width: 30, height: 30, backgroundColor: '#4CAF6A', borderRadius: 8, justifyContent: 'center', alignItems: 'center' },
   groceryCard: {
-    width: width * 0.6,
-    height: 100,
-    backgroundColor: '#F5F5F5',
-    borderRadius: 15,
-    marginLeft: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 15,
+    width: width * 0.6, height: 100,
+    backgroundColor: '#F5F5F5', borderRadius: 15,
+    marginLeft: 20, flexDirection: 'row',
+    alignItems: 'center', padding: 15,
   },
-
-  groceryImg: {
-    width: 60,
-    height: 60,
-    resizeMode: 'contain',
-    marginRight: 15,
-  },
-
-  groceryName: {  
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-
-  
+  groceryImg: { width: 60, height: 60, resizeMode: 'contain', marginRight: 15 },
+  groceryName: { fontWeight: 'bold', fontSize: 16 },
 });

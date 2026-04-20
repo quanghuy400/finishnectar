@@ -8,6 +8,11 @@ import {
   FlatList,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { useCart } from '../context/CartContext';
+import products from '../data';
+
+const beverageProducts = products.filter(p => p.category === 'Beverages');
 
 export default function Beverage({ navigation }) {
   return (
@@ -18,17 +23,15 @@ export default function Beverage({ navigation }) {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={22} color="#000" />
         </TouchableOpacity>
-
         <Text style={styles.title}>Beverages</Text>
-
         <Ionicons name="options-outline" size={22} color="#000" />
       </View>
 
       {/* LIST */}
       <FlatList
-        data={data}
+        data={beverageProducts}
         numColumns={2}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item) => item.id}
         contentContainerStyle={{ padding: 15 }}
         columnWrapperStyle={{ justifyContent: 'space-between' }}
         renderItem={({ item }) => <Card item={item} />}
@@ -39,135 +42,57 @@ export default function Beverage({ navigation }) {
 }
 
 /* CARD */
-const Card = ({ item }) => (
-  <View style={styles.card}>
+const Card = ({ item }) => {
+  const { addToCart } = useCart();
+  const navigation = useNavigation();
 
-    
-    <Image source={item.image} style={styles.img} />
+  const handleAdd = async () => {
+    await addToCart({
+      id: item.id,
+      name: item.name,
+      sub: item.sub,
+      price: item.price,
+      imageKey: item.imageKey,
+      category: item.category,
+    });
+    alert('Đã thêm vào giỏ!');
+  };
 
-    <Text style={styles.name}>{item.name}</Text>
-    <Text style={styles.sub}>{item.sub}</Text>
+  return (
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => navigation.navigate('ProductDetail', { item })}
+      activeOpacity={0.8}
+    >
+      <Image source={item.image} style={styles.img} />
+      <Text style={styles.name}>{item.name}</Text>
+      <Text style={styles.sub}>{item.sub}</Text>
+      <View style={styles.row}>
+        <Text style={styles.price}>${item.price.toFixed(2)}</Text>
+        <TouchableOpacity style={styles.add} onPress={handleAdd}>
+          <Ionicons name="add" size={18} color="#fff" />
+        </TouchableOpacity>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
-    <View style={styles.row}>
-      <Text style={styles.price}>{item.price}</Text>
-
-      <TouchableOpacity style={styles.add}>
-        <Ionicons name="add" size={18} color="#fff" />
-      </TouchableOpacity>
-    </View>
-
-  </View>
-);
-
-/* DATA */
-const data = [
-  {
-    name: 'Diet Coke',
-    sub: '355ml, Price',
-    price: '$1.99',
-    image: require('../assets/dietcoke.png'), // 👈 sửa ảnh
-  },
-  {
-    name: 'Sprite Can',
-    sub: '325ml, Price',
-    price: '$1.50',
-    image: require('../assets/sprite.png'),
-  },
-  {
-    name: 'Apple & Grape Juice',
-    sub: '2L, Price',
-    price: '$15.99',
-    image: require('../assets/applejuice.png'),
-  },
-  {
-    name: 'Orange Juice',
-    sub: '2L, Price',
-    price: '$15.99',
-    image: require('../assets/orangejuice.png'),
-  },
-  {
-    name: 'Coca Cola Can',
-    sub: '325ml, Price',
-    price: '$4.99',
-    image: require('../assets/cocacola.png'),
-  },
-  {
-    name: 'Pepsi Can',
-    sub: '330ml, Price',
-    price: '$4.99',
-    image: require('../assets/pepsi.png'),
-  },
-];
-
-/* STYLE */
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-
+  container: { flex: 1, backgroundColor: '#fff' },
   header: {
-    marginTop: 50,
-    paddingHorizontal: 15,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    marginTop: 50, paddingHorizontal: 15,
+    flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
   },
-
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-
+  title: { fontSize: 18, fontWeight: 'bold' },
   card: {
-    width: '48%',
-    backgroundColor: '#fff',
-    borderRadius: 15,
-    padding: 15,
-    marginBottom: 15,
-
-    borderWidth: 1,
-    borderColor: '#eee',
-
-    elevation: 2,
+    width: '48%', backgroundColor: '#fff',
+    borderRadius: 15, padding: 15, marginBottom: 15,
+    borderWidth: 1, borderColor: '#eee', elevation: 2,
   },
-
-  img: {
-    width: '100%',
-    height: 90,
-    resizeMode: 'contain',
-    marginBottom: 10,
-  },
-
-  name: {
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-
-  sub: {
-    color: '#888',
-    fontSize: 12,
-    marginVertical: 5,
-  },
-
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: 10,
-  },
-
-  price: {
-    fontWeight: 'bold',
-    fontSize: 14,
-  },
-
-  add: {
-    width: 35,
-    height: 35,
-    backgroundColor: '#4CAF6A',
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  img: { width: '100%', height: 90, resizeMode: 'contain', marginBottom: 10 },
+  name: { fontWeight: 'bold', fontSize: 14 },
+  sub: { color: '#888', fontSize: 12, marginVertical: 5 },
+  row: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 10 },
+  price: { fontWeight: 'bold', fontSize: 14 },
+  add: { width: 35, height: 35, backgroundColor: '#4CAF6A', borderRadius: 10, justifyContent: 'center', alignItems: 'center' },
 });

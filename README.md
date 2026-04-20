@@ -1,55 +1,100 @@
 Nguyễn Quang Huy - 23810310172
 
-https://drive.google.com/file/d/1YGltO3Nso_n7CEprhYDGJx8nNykOgu-m/view?usp=drive_link
+/// ẢNH 1 /// 
+![alt text](23810310172_01_login.jpg)
+![alt text](23810310172_01_login-1.jpg)
 
-Đầu tiên khi ta vào app sẽ hiện ảnh chào mừng splash screen, sau 3 giây nó sẽ tự chuyển sang screen 2
+/// ẢNH 2 /// 
+![alt text](23810310172_02_outapp.jpg)
+![alt text](23810310172_02_autologin.jpg)
 
-![23810310172_01_SplashScreen](https://github.com/user-attachments/assets/cc02ea53-4bbb-4c53-97b7-51b6ebd26378)
+/// ẢNH 3 /// 
+![alt text](23810310172_03_logout1.jpg) 
+![alt text](23810310172_03_logout2.jpg)
 
+/// ẢNH 4 ///
+![alt text](23810310172_04_ThemSP.jpg) 
+![alt text](23810310172_04_ThemSP-1.jpg)
 
-Screen 2 là OnBording, ta sẽ nhấp get started để bắt đầu 
-![23810310172_02_OnBording](https://github.com/user-attachments/assets/3d5b4196-08f2-4582-9913-f94253ffab43)
+/// ẢNH 5 /// 
+![alt text](23810310172_05_TatApp.jpg)
+![alt text](23810310172_05_Cartconnguyen.jpg)
 
-Sau khi bắt đầu ta sẽ lựa chọn các phương thức đăng nhập, ở đây là điện thoại 
-![23810310172_03_SignIn](https://github.com/user-attachments/assets/f3f7ddc2-710f-4f9e-a6eb-fdc4d16a6f84)
+/// ẢNH 6 /// 
+![alt text](23810310172_06_SoLuong.jpg)
+![alt text](23810310172_06_SoLuong2.jpg)
 
-Sau khi chọn điện thoại xong, hiển thị nhập số điện thoại rồi bấm next để sang bước tiếp
-![23810310172_04_Number](https://github.com/user-attachments/assets/f09e4f23-5faa-4322-9911-dce967b39106)
+/// ẢNH 7 ///
+![alt text](23810310172_07_DatHangThanhCong.jpg)
+![alt text](23810310172_07_DatHangThanhCong2.jpg)
 
-Sau khi nhập sđt, ta sẽ điền mã otp rồi next để tiếp tục
-![23810310172_05_Verification](https://github.com/user-attachments/assets/c004a586-baa0-4746-9946-a3d6711d12eb) 
+/// ẢNH 8 /// 
+![alt text](23810310172_08_DanhSach.jpg)
 
-Sau đó là chọn khu vực của mình 
-![23810310172_06_SelectLocation](https://github.com/user-attachments/assets/06f722f2-ddc6-4a2e-97c0-71472d7fa253)
-
-Rồi tiến hành đăng nhập bằng cách nhập tài khoản mật khẩu
-![23810310172_07_LogIn](https://github.com/user-attachments/assets/1aec9ffc-a765-47f2-8618-9566c170d395)
-
-Nếu chưa có tài khoản thì bấm vào chữ signup để đăng kí tài khoản
-![23810310172_08_SignUp](https://github.com/user-attachments/assets/24f9fdb2-08ec-4214-92c0-6dafd0f10feb)
-
-<img width="1080" height="2400" alt="Home1" src="https://github.com/user-attachments/assets/b004c4d2-58c2-4f79-b809-9a04fdb73d3e" />
-<img width="1080" height="2400" alt="Home2" src="https://github.com/user-attachments/assets/ba29cb1c-79b2-4381-a5ae-e92d05d5ba34" />
-<img width="1080" height="2400" alt="ProductDetail" src="https://github.com/user-attachments/assets/71437d8f-fe41-4cd2-beaf-05d0ef215147" />
-<img width="1080" height="2400" alt="Explore" src="https://github.com/user-attachments/assets/1969ad88-f54f-4274-a3e3-88cda8a410a5" />
-<img width="1080" height="2400" alt="Beverage" src="https://github.com/user-attachments/assets/bd74400f-c7b3-4f1c-80fe-2d2e887dcea6" />
-<img width="1080" height="2400" alt="Search" src="https://github.com/user-attachments/assets/fccc2008-dc29-4dbb-9ff6-cad6ee3f9656" />
-<img width="1080" height="2400" alt="Filter" src="https://github.com/user-attachments/assets/f1c4d164-a05c-440d-b5a0-13a41b708932" />
-<img width="1080" height="2400" alt="Favourite" src="https://github.com/user-attachments/assets/f748c393-59a0-45ce-b035-3e67c718ae29" />
+/// ẢNH 9 /// 
+![alt text](23810310172_09_Reload.jpg)
+![alt text](23810310172_09_Reload2.jpg) 
 
 
+/// MÔ TẢ CHỨC NĂNG /// 
+Mô tả chức năng:
+Nectar là ứng dụng mua sắm thực phẩm online gồm các chức năng chính:
+
+Xác thực: Đăng ký, đăng nhập, tự động hết hạn phiên sau 7 ngày
+Trang chủ: Hiển thị sản phẩm theo danh mục, banner khuyến mãi
+Khám phá: Tìm kiếm sản phẩm theo tên, lọc theo danh mục và thương hiệu
+Giỏ hàng: Thêm, xóa, thay đổi số lượng sản phẩm, thanh toán
+Đơn hàng: Xem lịch sử đơn hàng, xóa đơn hàng
+Yêu thích: Xem danh sách yêu thích, thêm tất cả vào giỏ, xóa sản phẩm
+Đồ uống: Danh sách đồ uống, thêm vào giỏ hàng
+Tài khoản: Xem đơn hàng, đăng xuất
+
+Data được lưu trữ cục bộ bằng AsyncStorage, mã hóa base64 trước khi lưu.
+
+/// HƯỚNG DẪN CHẠY APP /// 
+
+Node.js >= 18
+Expo Go app trên điện thoại (Android/iOS)
+# 1. Clone project
+git clone <link-repo>
+cd nectar
+# 2. Cài dependencies
+npm install
+# 3. Chạy app
+npx expo start
+
+Sau đó mở Expo Go trên điện thoại rồi quét QR code hiển thị trên terminal.
+Tài khoản test:
+Email: test@gmail.com
+Password: 123456
+
+/// ẢNH DEMO /// 
+![alt text](1.jpg)
+![alt text](2.jpg)
+![alt text](3.jpg)
+![alt text](4.jpg)
+![alt text](5.jpg)
+![alt text](6.jpg)
+![alt text](7.jpg)
+![alt text](Home1.jpg)
+![alt text](Explore.jpg)
+![alt text](Search.jpg)
+![alt text](Filter.jpg)
+![alt text](Favourite.jpg)
+![alt text](ProductDetail.jpg)
+![alt text](23810310172_05_Cartconnguyen-1.jpg)
+![alt text](23810310172_08_DanhSach-1.jpg)
 
 
 
+/// TRẢ LỜI CÂU HỎI /// 
 
+1. AsyncStorage hoạt động như thế nào?
+AsyncStorage là hệ thống lưu trữ key-value bất đồng bộ trên thiết bị. Data được lưu dạng string vào bộ nhớ cục bộ của điện thoại, tồn tại ngay cả khi tắt app. Mọi thao tác đọc/ghi đều trả về Promise nên phải dùng
 
+2. Vì sao dùng AsyncStorage thay vì biến state?
+State (useState) chỉ tồn tại trong RAM — tắt app là mất sạch. AsyncStorage lưu xuống bộ nhớ điện thoại nên data vẫn còn sau khi tắt/mở lại app. Ví dụ: giỏ hàng và đơn hàng vẫn còn sau khi reload, nếu dùng state thuần thì tắt app là mất hết.
 
-
-
-
-
-
-
-
-
-
+3. So sánh với Context API
+Context API giống như bảng trắng trong phòng — ai trong phòng cũng nhìn thấy và dùng được, nhưng hễ ra khỏi phòng là bảng bị xóa sạch. Tương tự, khi tắt app thì mọi state trong Context đều biến mất.
+AsyncStorage thì giống như ghi vào sổ tay — dù có đi đâu, tắt app, khởi động lại điện thoại thì data vẫn còn đó, chỉ cần mở ra đọc lại là được.

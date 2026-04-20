@@ -1,17 +1,29 @@
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
+  View, Text, StyleSheet, Image, TouchableOpacity,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useCart } from '../context/CartContext';
 
 export default function ProductDetail({ navigation, route }) {
   const { item } = route.params;
   const [qty, setQty] = useState(1);
+  const { addToCart } = useCart();
 
+const handleAddToCart = async () => {
+  const itemToSave = {
+    id: item.id,
+    name: item.name,
+    sub: item.sub,
+    price: item.price,
+    imageKey: item.imageKey,
+    category: item.category,
+  };
+  for (let i = 0; i < qty; i++) {
+    await addToCart(itemToSave);
+  }
+  alert('Đã thêm vào giỏ!');
+};
   return (
     <View style={styles.container}>
 
@@ -20,7 +32,6 @@ export default function ProductDetail({ navigation, route }) {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={24} />
         </TouchableOpacity>
-
         <Ionicons name="share-outline" size={22} />
       </View>
 
@@ -41,7 +52,6 @@ export default function ProductDetail({ navigation, route }) {
             <Text style={styles.name}>Naturel {item.name}</Text>
             <Text style={styles.sub}>1kg, Price</Text>
           </View>
-
           <Ionicons name="heart-outline" size={22} color="#333" />
         </View>
 
@@ -51,15 +61,12 @@ export default function ProductDetail({ navigation, route }) {
             <TouchableOpacity onPress={() => setQty(Math.max(1, qty - 1))}>
               <Ionicons name="remove" size={18} />
             </TouchableOpacity>
-
             <Text style={styles.qtyText}>{qty}</Text>
-
             <TouchableOpacity onPress={() => setQty(qty + 1)}>
               <Ionicons name="add" size={18} color="#4CAF6A" />
             </TouchableOpacity>
           </View>
-
-          <Text style={styles.price}>$4.99</Text>
+          <Text style={styles.price}>${(item.price * qty).toFixed(2)}</Text>
         </View>
 
         {/* PRODUCT DETAIL */}
@@ -68,7 +75,6 @@ export default function ProductDetail({ navigation, route }) {
             <Text style={styles.blockTitle}>Product Detail</Text>
             <Ionicons name="chevron-down" size={18} />
           </View>
-
           <Text style={styles.desc}>
             Apples Are Nutritious. Apples May Be Good For Weight Loss.
             Apples May Be Good For Your Heart. As Part Of A Healthful
@@ -88,7 +94,6 @@ export default function ProductDetail({ navigation, route }) {
         <View style={styles.block}>
           <View style={styles.rowBetween}>
             <Text style={styles.blockTitle}>Review</Text>
-
             <View style={{ flexDirection: 'row' }}>
               {[1,2,3,4,5].map(i => (
                 <Ionicons key={i} name="star" size={16} color="#FF8C42" />
@@ -100,7 +105,7 @@ export default function ProductDetail({ navigation, route }) {
       </View>
 
       {/* BUTTON */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleAddToCart}>
         <Text style={styles.buttonText}>Add To Basket</Text>
       </TouchableOpacity>
 
@@ -108,126 +113,41 @@ export default function ProductDetail({ navigation, route }) {
   );
 }
 
-/* STYLE */
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-
+  container: { flex: 1, backgroundColor: '#fff' },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    marginTop: 50,
+    flexDirection: 'row', justifyContent: 'space-between',
+    paddingHorizontal: 20, marginTop: 50,
   },
-
   imageBox: {
-    backgroundColor: '#f2f2f2',
-    margin: 20,
-    borderRadius: 20,
-    alignItems: 'center',
-    padding: 30,
+    backgroundColor: '#f2f2f2', margin: 20,
+    borderRadius: 20, alignItems: 'center', padding: 30,
   },
-
-  image: {
-    width: 200,
-    height: 200,
-    resizeMode: 'contain',
-  },
-
+  image: { width: 200, height: 200, resizeMode: 'contain' },
   dot: {
-    width: 6,
-    height: 6,
-    backgroundColor: '#4CAF6A',
-    alignSelf: 'center',
-    borderRadius: 3,
-    marginBottom: 10,
+    width: 6, height: 6, backgroundColor: '#4CAF6A',
+    alignSelf: 'center', borderRadius: 3, marginBottom: 10,
   },
-
-  content: {
-    paddingHorizontal: 20,
-  },
-
-  rowBetween: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-
-  name: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-
-  sub: {
-    color: '#888',
-    marginTop: 5,
-  },
-
-  qtyRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-
+  content: { paddingHorizontal: 20 },
+  rowBetween: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  name: { fontSize: 18, fontWeight: 'bold' },
+  sub: { color: '#888', marginTop: 5 },
+  qtyRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginVertical: 20 },
   qtyBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    height: 40,
+    flexDirection: 'row', alignItems: 'center',
+    borderWidth: 1, borderColor: '#ddd',
+    borderRadius: 10, paddingHorizontal: 10, height: 40,
   },
-
-  qtyText: {
-    marginHorizontal: 15,
-    fontSize: 16,
-  },
-
-  price: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-
-  block: {
-    borderTopWidth: 1,
-    borderColor: '#eee',
-    paddingVertical: 15,
-  },
-
-  blockTitle: {
-    fontWeight: 'bold',
-  },
-
-  desc: {
-    color: '#777',
-    marginTop: 10,
-    fontSize: 13,
-    lineHeight: 18,
-  },
-
-  tag: {
-    backgroundColor: '#eee',
-    paddingHorizontal: 8,
-    borderRadius: 5,
-    fontSize: 12,
-  },
-
+  qtyText: { marginHorizontal: 15, fontSize: 16 },
+  price: { fontSize: 20, fontWeight: 'bold' },
+  block: { borderTopWidth: 1, borderColor: '#eee', paddingVertical: 15 },
+  blockTitle: { fontWeight: 'bold' },
+  desc: { color: '#777', marginTop: 10, fontSize: 13, lineHeight: 18 },
+  tag: { backgroundColor: '#eee', paddingHorizontal: 8, borderRadius: 5, fontSize: 12 },
   button: {
-    backgroundColor: '#4CAF6A',
-    margin: 20,
-    borderRadius: 30,
-    height: 55,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#4CAF6A', margin: 20,
+    borderRadius: 30, height: 55,
+    justifyContent: 'center', alignItems: 'center',
   },
-
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
+  buttonText: { color: '#fff', fontWeight: 'bold', fontSize: 16 },
 });

@@ -1,0 +1,25 @@
+const imageMap = {
+  pepper: require('../assets/pepper.png'),
+  banana: require('../assets/banana.png'),
+  ginger: require('../assets/ginger.png'),
+  apple: require('../assets/apple.png'),
+  dietcoke: require('../assets/dietcoke.png'),
+  sprite: require('../assets/sprite.png'),
+  applejuice: require('../assets/applejuice.png'),
+  orangejuice: require('../assets/orangejuice.png'),
+  cocacola: require('../assets/cocacola.png'),
+  pepsi: require('../assets/pepsi.png'),
+  beef: require('../assets/beef.png'),
+  chicken: require('../assets/chicken.png'),
+  oil: require('../assets/oil.png'),
+  rice: require('../assets/rice.png'),
+  pulse: require('../assets/pulse.png'),
+  eckr: require('../assets/eckr.png'),
+  eckw: require('../assets/eckw.png'),
+  ep: require('../assets/ep.png'),
+  en: require('../assets/en.png'),
+  me: require('../assets/me.png'),
+  enoodle: require('../assets/enoodle.png'),
+};
+
+export default imageMap;
